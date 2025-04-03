@@ -9,6 +9,11 @@ import {
   Layers,
   ShieldAlert,
   Users,
+  CalendarDays,
+  DollarSign,
+  FileText,
+  Briefcase,
+  UserCheck,
 } from "lucide-react";
 import {
   Sidebar,
@@ -79,7 +84,41 @@ export function AppSidebar({ variant }: SidebarProps) {
           url: "/hr-admin",
           icon: BarChart3,
         },
-        // Add HR admin menu items later
+        {
+          title: "Employees",
+          url: "/hr-admin/employees",
+          icon: Users,
+        },
+        {
+          title: "Attendance",
+          url: "/hr-admin/attendance",
+          icon: CalendarDays,
+        },
+        {
+          title: "Leave Management",
+          url: "/hr-admin/leave",
+          icon: ClipboardList,
+        },
+        {
+          title: "Payroll",
+          url: "/hr-admin/payroll",
+          icon: DollarSign,
+        },
+        {
+          title: "Recruitment",
+          url: "/hr-admin/recruitment",
+          icon: Briefcase,
+        },
+        {
+          title: "Compliance",
+          url: "/hr-admin/compliance",
+          icon: FileText,
+        },
+        {
+          title: "Performance",
+          url: "/hr-admin/performance",
+          icon: UserCheck,
+        },
       ]);
     } else {
       setMenuItems([
@@ -88,7 +127,31 @@ export function AppSidebar({ variant }: SidebarProps) {
           url: "/employee",
           icon: BarChart3,
         },
-        // Add employee menu items later
+        {
+          title: "My Profile",
+          url: "/employee/profile",
+          icon: UserCheck,
+        },
+        {
+          title: "Attendance",
+          url: "/employee/attendance",
+          icon: CalendarDays,
+        },
+        {
+          title: "Leave Requests",
+          url: "/employee/leave",
+          icon: ClipboardList,
+        },
+        {
+          title: "Payslips",
+          url: "/employee/payslips",
+          icon: DollarSign,
+        },
+        {
+          title: "Documents",
+          url: "/employee/documents",
+          icon: FileText,
+        },
       ]);
     }
   }, [variant]);

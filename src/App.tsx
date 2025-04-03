@@ -29,9 +29,21 @@ const App = () => (
           
           {/* HR Admin Routes */}
           <Route path="/hr-admin" element={<HRAdmin />} />
+          <Route path="/hr-admin/employees" element={<HRAdmin />} />
+          <Route path="/hr-admin/attendance" element={<HRAdmin />} />
+          <Route path="/hr-admin/leave" element={<HRAdmin />} />
+          <Route path="/hr-admin/payroll" element={<HRAdmin />} />
+          <Route path="/hr-admin/recruitment" element={<HRAdmin />} />
+          <Route path="/hr-admin/compliance" element={<HRAdmin />} />
+          <Route path="/hr-admin/performance" element={<HRAdmin />} />
           
           {/* Employee Routes */}
           <Route path="/employee" element={<Employee />} />
+          <Route path="/employee/profile" element={<Employee />} />
+          <Route path="/employee/attendance" element={<Employee />} />
+          <Route path="/employee/leave" element={<Employee />} />
+          <Route path="/employee/payslips" element={<Employee />} />
+          <Route path="/employee/documents" element={<Employee />} />
           
           {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
