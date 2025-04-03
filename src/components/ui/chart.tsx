@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 
@@ -353,6 +354,104 @@ function getPayloadConfigFromPayload(
     : config[key as keyof typeof config]
 }
 
+// Create and export DonutChart component using PieChart from recharts
+export const DonutChart = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & {
+    data: Array<{
+      label: string;
+      value: number;
+      color: string;
+      formatted?: string;
+    }>;
+    innerRadius?: number;
+    outerRadius?: number;
+  }
+>(({ data, innerRadius = 70, outerRadius = 90, ...props }, ref) => {
+  return (
+    <div ref={ref} {...props}>
+      <RechartsPrimitive.PieChart width={180} height={180}>
+        <RechartsPrimitive.Pie
+          data={data}
+          dataKey="value"
+          nameKey="label"
+          cx="50%"
+          cy="50%"
+          innerRadius={innerRadius}
+          outerRadius={outerRadius}
+          paddingAngle={2}
+        >
+          {data.map((entry, index) => (
+            <RechartsPrimitive.Cell 
+              key={`cell-${index}`} 
+              fill={entry.color} 
+            />
+          ))}
+          <RechartsPrimitive.Label
+            content={({ viewBox }) => {
+              const { cx, cy } = viewBox as { cx: number; cy: number };
+              return (
+                <g>
+                  <text
+                    x={cx}
+                    y={cy}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    className="text-xs font-medium fill-foreground"
+                  >
+                    {data.length} plans
+                  </text>
+                </g>
+              );
+            }}
+          />
+        </RechartsPrimitive.Pie>
+      </RechartsPrimitive.PieChart>
+    </div>
+  );
+});
+DonutChart.displayName = "DonutChart";
+
+// Create and export Legend component
+export const Legend = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<"div"> & {
+    data: Array<{
+      label: string;
+      value: number;
+      color: string;
+      formatted?: string;
+    }>;
+    className?: string;
+    labels?: (item: { label: string; color: string; value: number; formatted?: string }) => React.ReactNode;
+    values?: (item: { label: string; color: string; value: number; formatted?: string }) => React.ReactNode;
+  }
+>(({ data, className, labels, values, ...props }, ref) => {
+  return (
+    <div ref={ref} className={className} {...props}>
+      {data.map((item, index) => (
+        <div key={index} className="flex items-center justify-between">
+          {labels ? 
+            labels(item) : 
+            <div className="flex items-center">
+              <span 
+                className="h-3 w-3 rounded-full mr-2" 
+                style={{ backgroundColor: item.color }}
+              />
+              <span>{item.label}</span>
+            </div>
+          }
+          {values ? 
+            values(item) :
+            <span>{item.formatted || item.value}</span>
+          }
+        </div>
+      ))}
+    </div>
+  );
+});
+Legend.displayName = "Legend";
+
 export {
   ChartContainer,
   ChartTooltip,
@@ -361,3 +460,4 @@ export {
   ChartLegendContent,
   ChartStyle,
 }
+
