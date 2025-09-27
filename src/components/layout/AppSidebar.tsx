@@ -32,7 +32,7 @@ export function AppSidebar({ variant }: SidebarProps) {
   };
 
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
       <AppSidebarHeader title="TenantPulse" subtitle={variantTitle[variant]} />
       <AppSidebarContent menuItems={menuItems} />
       <AppSidebarFooter version="v1.0" />

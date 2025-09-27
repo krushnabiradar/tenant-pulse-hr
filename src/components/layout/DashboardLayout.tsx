@@ -21,7 +21,7 @@ export default function DashboardLayout({ variant, children, title }: DashboardL
   };
 
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={true}>
       <div className="min-h-screen flex w-full">
         <AppSidebar variant={variant} />
         <div className="flex-1 flex flex-col">
