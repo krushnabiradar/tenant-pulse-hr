@@ -12,8 +12,8 @@ import ComplianceDocuments from "@/components/hr-admin/ComplianceDocuments";
 const HRAdmin = () => {
   return (
     <DashboardLayout variant="hr-admin" title="HR Admin Dashboard">
-      <div className="p-6 space-y-6">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
           <StatsCard
             title="Total Employees"
             value="124"
@@ -41,29 +41,29 @@ const HRAdmin = () => {
           />
         </div>
 
-        <div className="grid gap-6 md:grid-cols-12">
-          <div className="md:col-span-8">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-12">
+          <div className="lg:col-span-8 overflow-x-auto">
             <EmployeeList />
           </div>
-          <div className="md:col-span-4">
+          <div className="lg:col-span-4">
             <AttendanceOverview />
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-12">
-          <div className="md:col-span-6">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
+          <div className="overflow-x-auto">
             <LeaveRequestsSummary />
           </div>
-          <div className="md:col-span-6">
+          <div className="overflow-x-auto">
             <PayrollStatus />
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-12">
-          <div className="md:col-span-6">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
+          <div>
             <RecruitmentProgress />
           </div>
-          <div className="md:col-span-6">
+          <div>
             <ComplianceDocuments />
           </div>
         </div>

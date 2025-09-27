@@ -10,8 +10,8 @@ import SubscriptionCard from "@/components/super-admin/SubscriptionCard";
 const SuperAdmin = () => {
   return (
     <DashboardLayout variant="super-admin" title="Super Admin Dashboard">
-      <div className="p-6 space-y-6">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto">
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
           <StatsCard
             title="Total Companies"
             value="42"
@@ -38,18 +38,22 @@ const SuperAdmin = () => {
           />
         </div>
 
-        <div className="grid gap-6 md:grid-cols-12">
-          <div className="md:col-span-8">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-12">
+          <div className="lg:col-span-8">
             <SystemMetricsChart />
           </div>
-          <div className="md:col-span-4">
+          <div className="lg:col-span-4">
             <SubscriptionCard />
           </div>
         </div>
 
-        <TenantTable />
+        <div className="overflow-x-auto">
+          <TenantTable />
+        </div>
 
-        <AuditLogTable />
+        <div className="overflow-x-auto">
+          <AuditLogTable />
+        </div>
       </div>
     </DashboardLayout>
   );
