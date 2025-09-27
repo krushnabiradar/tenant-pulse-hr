@@ -1,5 +1,5 @@
 
-import { SidebarHeader, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarHeader } from "@/components/ui/sidebar";
 
 interface AppSidebarHeaderProps {
   title: string;

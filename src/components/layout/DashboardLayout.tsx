@@ -22,11 +22,11 @@ export default function DashboardLayout({ variant, children, title }: DashboardL
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <div className="min-h-screen flex w-full">
+      <div className="min-h-screen flex w-full overflow-hidden">
         <AppSidebar variant={variant} />
-        <div className="flex-1 flex flex-col min-w-0">
+        <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
           <DashboardHeader title={title} user={user} />
-          <main className="flex-1 overflow-x-auto min-w-0">
+          <main className="flex-1 overflow-auto">
             {children}
           </main>
         </div>
