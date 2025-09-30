@@ -1,5 +1,10 @@
-
-import { BarChart3, Building2, ClipboardList, CreditCard, Layers, ShieldAlert, Users } from "lucide-react";
+import {
+  BarChart3,
+  Building2,
+  ClipboardList,
+  CreditCard,
+  Users,
+} from "lucide-react";
 
 export type SuperAdminMenuItem = {
   title: string;
@@ -25,11 +30,6 @@ export const getSuperAdminMenuItems = (): SuperAdminMenuItem[] => {
       icon: Users,
     },
     {
-      title: "System Metrics",
-      url: "/super-admin/system-metrics",
-      icon: Layers,
-    },
-    {
       title: "Subscriptions",
       url: "/super-admin/subscriptions",
       icon: CreditCard,
@@ -38,11 +38,6 @@ export const getSuperAdminMenuItems = (): SuperAdminMenuItem[] => {
       title: "Audit Logs",
       url: "/super-admin/audit-logs",
       icon: ClipboardList,
-    },
-    {
-      title: "Security",
-      url: "/super-admin/security",
-      icon: ShieldAlert,
     },
   ];
 };

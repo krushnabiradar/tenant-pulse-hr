@@ -1,5 +1,10 @@
-
-import { BarChart3, CalendarDays, ClipboardList, DollarSign, FileText, UserCheck } from "lucide-react";
+import {
+  BarChart3,
+  CalendarDays,
+  ClipboardList,
+  FileText,
+  UserCheck,
+} from "lucide-react";
 
 export type EmployeeMenuItem = {
   title: string;
@@ -28,11 +33,6 @@ export const getEmployeeMenuItems = (): EmployeeMenuItem[] => {
       title: "Leave Requests",
       url: "/employee/leave",
       icon: ClipboardList,
-    },
-    {
-      title: "Payslips",
-      url: "/employee/payslips",
-      icon: DollarSign,
     },
     {
       title: "Documents",
