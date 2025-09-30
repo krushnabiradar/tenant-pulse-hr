@@ -1,14 +1,21 @@
-
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Calendar, Clock } from "lucide-react";
+import { useState } from "react";
 
 interface AttendanceCardProps {
   workingHours?: string;
 }
 
-const AttendanceCard = ({ workingHours = "9:00 AM - 5:00 PM" }: AttendanceCardProps) => {
+const AttendanceCard = ({
+  workingHours = "9:00 AM - 5:00 PM",
+}: AttendanceCardProps) => {
   const [isPunchedIn, setIsPunchedIn] = useState(false);
   const [punchInTime, setPunchInTime] = useState<string | null>(null);
   const currentDate = new Date().toLocaleDateString("en-US", {
@@ -24,7 +31,7 @@ const AttendanceCard = ({ workingHours = "9:00 AM - 5:00 PM" }: AttendanceCardPr
       hour: "2-digit",
       minute: "2-digit",
     });
-    
+
     if (isPunchedIn) {
       // Punch out logic
       setIsPunchedIn(false);
@@ -53,7 +60,11 @@ const AttendanceCard = ({ workingHours = "9:00 AM - 5:00 PM" }: AttendanceCardPr
             </div>
             <div>
               <p className="text-sm font-medium">Status</p>
-              <p className={`text-sm ${isPunchedIn ? "text-green-500" : "text-amber-500"}`}>
+              <p
+                className={`text-sm ${
+                  isPunchedIn ? "text-green-500" : "text-amber-500"
+                }`}
+              >
                 {isPunchedIn ? "Punched In" : "Not Punched In"}
               </p>
             </div>
@@ -64,12 +75,23 @@ const AttendanceCard = ({ workingHours = "9:00 AM - 5:00 PM" }: AttendanceCardPr
               <p className="text-sm text-muted-foreground">{punchInTime}</p>
             </div>
           )}
+          <div className="mt-4 p-4 bg-muted rounded-lg">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">
+                  Working Hours Today
+                </span>
+              </div>
+              <span className="font-bold text-lg">8h 30m</span>
+            </div>
+          </div>
         </div>
       </CardContent>
       <CardFooter>
-        <Button 
-          onClick={handlePunch} 
-          className="w-full" 
+        <Button
+          onClick={handlePunch}
+          className="w-full"
           variant={isPunchedIn ? "outline" : "default"}
         >
           {isPunchedIn ? "Punch Out" : "Punch In"}

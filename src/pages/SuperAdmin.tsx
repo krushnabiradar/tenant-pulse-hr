@@ -46,14 +46,6 @@ const SuperAdmin = () => {
             <SubscriptionCard />
           </div>
         </div>
-
-        <div className="overflow-x-auto">
-          <TenantTable />
-        </div>
-
-        <div className="overflow-x-auto">
-          <AuditLogTable />
-        </div>
       </div>
     </DashboardLayout>
   );

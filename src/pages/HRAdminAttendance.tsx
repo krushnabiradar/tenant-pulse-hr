@@ -1,9 +1,14 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
 import AttendanceOverview from "@/components/hr-admin/AttendanceOverview";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Download, Upload } from "lucide-react";
 import { useState } from "react";
 
@@ -31,7 +36,7 @@ const HRAdminAttendance = () => {
           <div className="lg:col-span-2">
             <AttendanceOverview />
           </div>
-          
+
           <div className="space-y-4">
             <Card>
               <CardHeader>
@@ -47,7 +52,6 @@ const HRAdminAttendance = () => {
                 />
               </CardContent>
             </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle>Quick Stats</CardTitle>
@@ -56,59 +60,30 @@ const HRAdminAttendance = () => {
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Present</span>
+                    <span className="text-sm text-muted-foreground">
+                      Present
+                    </span>
                     <span className="font-medium">142</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Absent</span>
+                    <span className="text-sm text-muted-foreground">
+                      Absent
+                    </span>
                     <span className="font-medium">8</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">On Leave</span>
+                    <span className="text-sm text-muted-foreground">
+                      On Leave
+                    </span>
                     <span className="font-medium">5</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-sm text-muted-foreground">Late Arrivals</span>
+                    <span className="text-sm text-muted-foreground">
+                      Late Arrivals
+                    </span>
                     <span className="font-medium">12</span>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Filters</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium">Department</label>
-                  <Select defaultValue="all">
-                    <SelectTrigger className="mt-1">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Departments</SelectItem>
-                      <SelectItem value="engineering">Engineering</SelectItem>
-                      <SelectItem value="sales">Sales</SelectItem>
-                      <SelectItem value="hr">HR</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Shift</label>
-                  <Select defaultValue="all">
-                    <SelectTrigger className="mt-1">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Shifts</SelectItem>
-                      <SelectItem value="morning">Morning</SelectItem>
-                      <SelectItem value="evening">Evening</SelectItem>
-                      <SelectItem value="night">Night</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <Button className="w-full">Apply Filters</Button>
               </CardContent>
             </Card>
           </div>

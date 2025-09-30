@@ -1,14 +1,33 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
 import PayslipCard from "@/components/employee/PayslipCard";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Download, FileText } from "lucide-react";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const EmployeePayslips = () => {
   const payslips = [
-    { month: "January 2024", date: "2024-01-31", amount: "$5,000", status: "Paid" },
-    { month: "December 2023", date: "2023-12-31", amount: "$5,000", status: "Paid" },
-    { month: "November 2023", date: "2023-11-30", amount: "$5,000", status: "Paid" },
+    {
+      month: "January 2024",
+      date: "2024-01-31",
+      amount: "$5,000",
+      status: "Paid",
+    },
+    {
+      month: "December 2023",
+      date: "2023-12-31",
+      amount: "$5,000",
+      status: "Paid",
+    },
+    {
+      month: "November 2023",
+      date: "2023-11-30",
+      amount: "$5,000",
+      status: "Paid",
+    },
   ];
 
   return (
@@ -19,33 +38,6 @@ const EmployeePayslips = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <PayslipCard />
-            <Card className="mt-6">
-              <CardHeader>
-                <CardTitle>Previous Payslips</CardTitle>
-                <CardDescription>Download your past payslips</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {payslips.map((payslip, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <FileText className="h-5 w-5 text-muted-foreground" />
-                        <div>
-                          <p className="font-medium">{payslip.month}</p>
-                          <p className="text-sm text-muted-foreground">{payslip.date}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <span className="font-medium">{payslip.amount}</span>
-                        <Button size="sm" variant="outline">
-                          <Download className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
           </div>
           <Card>
             <CardHeader>

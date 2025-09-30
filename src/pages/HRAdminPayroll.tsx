@@ -184,26 +184,6 @@ const HRAdminPayroll = () => {
                 </div>
               </CardContent>
             </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <Button className="w-full" variant="outline">
-                  <Download className="h-4 w-4 mr-2" />
-                  Download Pay Stubs
-                </Button>
-                <Button className="w-full" variant="outline">
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Pay Slips
-                </Button>
-                <Button className="w-full" variant="outline">
-                  <FileText className="h-4 w-4 mr-2" />
-                  Tax Documents
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
