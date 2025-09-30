@@ -17,7 +17,10 @@ const AttendanceCard = ({
   workingHours = "9:00 AM - 5:00 PM",
 }: AttendanceCardProps) => {
   const [isPunchedIn, setIsPunchedIn] = useState(false);
-  const [punchInTime, setPunchInTime] = useState<string | null>(null);
+  const [punchInTime, setPunchInTime] = useState<Date | null>(null);
+  const [punchOutTime, setPunchOutTime] = useState<Date | null>(null);
+  const [totalWorkingHours, setTotalWorkingHours] = useState<string>("0h 0m");
+
   const currentDate = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",
@@ -25,20 +28,49 @@ const AttendanceCard = ({
     day: "numeric",
   });
 
-  const handlePunch = () => {
-    const now = new Date();
-    const formattedTime = now.toLocaleTimeString("en-US", {
+  // Reset attendance data if it's a new day
+  useState(() => {
+    const lastPunchDate = punchInTime?.toLocaleDateString();
+    const today = new Date().toLocaleDateString();
+
+    if (lastPunchDate && lastPunchDate !== today) {
+      setIsPunchedIn(false);
+      setPunchInTime(null);
+      setPunchOutTime(null);
+      setTotalWorkingHours("0h 0m");
+    }
+  });
+
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
     });
+  };
+
+  const calculateWorkingHours = (start: Date, end: Date) => {
+    const diff = end.getTime() - start.getTime();
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    return `${hours}h ${minutes}m`;
+  };
+
+  const handlePunch = () => {
+    const now = new Date();
 
     if (isPunchedIn) {
       // Punch out logic
+      setPunchOutTime(now);
       setIsPunchedIn(false);
+      if (punchInTime) {
+        setTotalWorkingHours(calculateWorkingHours(punchInTime, now));
+      }
     } else {
       // Punch in logic
       setIsPunchedIn(true);
-      setPunchInTime(formattedTime);
+      setPunchInTime(now);
+      setPunchOutTime(null);
+      setTotalWorkingHours("0h 0m");
     }
   };
 
@@ -69,12 +101,24 @@ const AttendanceCard = ({
               </p>
             </div>
           </div>
-          {isPunchedIn && punchInTime && (
-            <div className="mt-2">
-              <p className="text-sm font-medium">Punch In Time</p>
-              <p className="text-sm text-muted-foreground">{punchInTime}</p>
-            </div>
-          )}
+          <div className="space-y-2 mt-2">
+            {punchInTime && (
+              <div>
+                <p className="text-sm font-medium">Punch In Time</p>
+                <p className="text-sm text-muted-foreground">
+                  {formatTime(punchInTime)}
+                </p>
+              </div>
+            )}
+            {punchOutTime && (
+              <div>
+                <p className="text-sm font-medium">Punch Out Time</p>
+                <p className="text-sm text-muted-foreground">
+                  {formatTime(punchOutTime)}
+                </p>
+              </div>
+            )}
+          </div>
           <div className="mt-4 p-4 bg-muted rounded-lg">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -83,7 +127,7 @@ const AttendanceCard = ({
                   Working Hours Today
                 </span>
               </div>
-              <span className="font-bold text-lg">8h 30m</span>
+              <span className="font-bold text-lg">{totalWorkingHours}</span>
             </div>
           </div>
         </div>
