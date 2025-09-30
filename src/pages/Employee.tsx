@@ -1,7 +1,6 @@
 import AnnouncementsCard from "@/components/employee/AnnouncementsCard";
 import AttendanceCard from "@/components/employee/AttendanceCard";
 import LeaveRequestCard from "@/components/employee/LeaveRequestCard";
-import PerformanceCard from "@/components/employee/PerformanceCard";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 
 const Employee = () => {
@@ -16,7 +15,6 @@ const Employee = () => {
           <LeaveRequestCard />
 
           {/* Bottom row */}
-          <PerformanceCard />
           <AnnouncementsCard />
         </div>
       </div>
