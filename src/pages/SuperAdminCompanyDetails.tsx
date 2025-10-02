@@ -5,35 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Building2, Users, Calendar, CreditCard, Mail, Phone } from "lucide-react";
+import companiesData from "@/data/companies.json";
 
 const SuperAdminCompanyDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Mock data - in real app, fetch based on id
-  const company = {
-    id: id,
-    name: "Acme Corporation",
-    industry: "Manufacturing",
-    employees: 120,
-    plan: "Enterprise",
-    status: "active",
-    joinedDate: "2023-10-15",
-    email: "contact@acme.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Business St, City, State 12345",
-    hrAdmin: {
-      name: "John Doe",
-      email: "john.doe@acme.com",
-      phone: "+1 (555) 987-6543",
-    },
-    subscription: {
-      plan: "Enterprise",
-      status: "active",
-      amount: "$299/month",
-      nextBilling: "2024-11-15",
-    }
-  };
+  // Fetch company data from JSON file based on id
+  const company = companiesData.find(c => c.id === Number(id)) || companiesData[0];
 
   return (
     <DashboardLayout variant="super-admin" title="Company Details">

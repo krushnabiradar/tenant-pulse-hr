@@ -11,6 +11,7 @@ import {
   Calendar
 } from "lucide-react";
 import AddCompanyDialog from "./AddCompanyDialog";
+import companiesData from "@/data/companies.json";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -47,62 +48,15 @@ interface Tenant {
   joinedDate: string;
 }
 
-const mockTenants: Tenant[] = [
-  {
-    id: 1,
-    name: "Acme Corporation",
-    industry: "Manufacturing",
-    employees: 120,
-    plan: "Enterprise",
-    status: "active",
-    joinedDate: "2023-10-15",
-  },
-  {
-    id: 2,
-    name: "Globex Industries",
-    industry: "Technology",
-    employees: 85,
-    plan: "Professional",
-    status: "active",
-    joinedDate: "2023-11-22",
-  },
-  {
-    id: 3,
-    name: "Umbrella Corp",
-    industry: "Pharmaceutical",
-    employees: 210,
-    plan: "Enterprise",
-    status: "active",
-    joinedDate: "2023-08-05",
-  },
-  {
-    id: 4,
-    name: "Stark Industries",
-    industry: "Technology",
-    employees: 150,
-    plan: "Enterprise",
-    status: "active",
-    joinedDate: "2024-01-10",
-  },
-  {
-    id: 5,
-    name: "Cyberdyne Systems",
-    industry: "Technology",
-    employees: 45,
-    plan: "Professional",
-    status: "inactive",
-    joinedDate: "2023-07-19",
-  },
-  {
-    id: 6,
-    name: "Soylent Corp",
-    industry: "Food & Beverage",
-    employees: 62,
-    plan: "Standard",
-    status: "pending",
-    joinedDate: "2024-03-28",
-  },
-];
+const mockTenants: Tenant[] = companiesData.map(company => ({
+  id: company.id,
+  name: company.name,
+  industry: company.industry,
+  employees: company.employees,
+  plan: company.plan,
+  status: company.status as "active" | "inactive" | "pending",
+  joinedDate: company.joinedDate,
+}));
 
 export default function TenantTable() {
   const [tenants] = useState<Tenant[]>(mockTenants);

@@ -1,4 +1,3 @@
-
 import { User, Mail, Phone, Search } from "lucide-react";
 import { 
   Table, 
@@ -10,55 +9,10 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import employeesData from "@/data/employees.json";
 
-// Mock employee data
-const employees = [
-  { 
-    id: 1, 
-    name: "Alex Johnson", 
-    position: "Senior Developer", 
-    department: "Engineering",
-    email: "alex.johnson@example.com",
-    phone: "+1 (555) 123-4567",
-    status: "Active"
-  },
-  { 
-    id: 2, 
-    name: "Samantha Williams", 
-    position: "Marketing Manager", 
-    department: "Marketing",
-    email: "samantha.w@example.com",
-    phone: "+1 (555) 234-5678",
-    status: "Active"
-  },
-  { 
-    id: 3, 
-    name: "Michael Chen", 
-    position: "UX Designer", 
-    department: "Design",
-    email: "michael.chen@example.com",
-    phone: "+1 (555) 345-6789",
-    status: "Active"
-  },
-  { 
-    id: 4, 
-    name: "Jessica Taylor", 
-    position: "Product Manager", 
-    department: "Product",
-    email: "jessica.t@example.com",
-    phone: "+1 (555) 456-7890",
-    status: "On Leave"
-  },
-  { 
-    id: 5, 
-    name: "David Rodriguez", 
-    position: "QA Engineer", 
-    department: "Engineering",
-    email: "david.r@example.com",
-    phone: "+1 (555) 567-8901",
-    status: "Active"
-  }
-];
+// Filter employees for company ID 1 (default HR admin view)
+const employees = employeesData.filter(emp => emp.companyId === 1);
 
 const EmployeeList = () => {
   return (

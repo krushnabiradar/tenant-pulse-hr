@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import companiesData from "@/data/companies.json";
 import {
   Select,
   SelectContent,
@@ -20,16 +21,8 @@ const SuperAdminCompanyEdit = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // Mock data - in real app, fetch based on id
-  const company = {
-    name: "Acme Corporation",
-    industry: "Manufacturing",
-    employees: 120,
-    email: "contact@acme.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Business St, City, State 12345",
-    status: "active",
-  };
+  // Fetch company data from JSON file based on id
+  const company = companiesData.find(c => c.id === Number(id)) || companiesData[0];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

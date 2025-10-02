@@ -3,6 +3,8 @@ import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import companiesData from "@/data/companies.json";
+import billingHistoryData from "@/data/billingHistory.json";
 import {
   Select,
   SelectContent,
@@ -28,41 +30,22 @@ const SuperAdminCompanySubscription = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // Mock data
+  // Fetch company data from JSON file based on id
+  const company = companiesData.find(c => c.id === Number(id)) || companiesData[0];
+  
   const subscription = {
-    companyName: "Acme Corporation",
-    currentPlan: "enterprise",
-    status: "active",
-    amount: "$299",
-    billingCycle: "monthly",
-    nextBillingDate: "2024-11-15",
-    startDate: "2023-10-15",
-    paymentMethod: "Credit Card ending in 4242",
+    companyName: company.name,
+    currentPlan: company.subscription.plan.toLowerCase(),
+    status: company.subscription.status,
+    amount: company.subscription.amount,
+    billingCycle: company.subscription.billingCycle,
+    nextBillingDate: company.subscription.nextBilling,
+    startDate: company.subscription.startDate,
+    paymentMethod: company.subscription.paymentMethod,
   };
 
-  const billingHistory = [
-    {
-      id: 1,
-      date: "2024-10-15",
-      amount: "$299.00",
-      status: "paid",
-      invoice: "INV-001234",
-    },
-    {
-      id: 2,
-      date: "2024-09-15",
-      amount: "$299.00",
-      status: "paid",
-      invoice: "INV-001233",
-    },
-    {
-      id: 3,
-      date: "2024-08-15",
-      amount: "$299.00",
-      status: "paid",
-      invoice: "INV-001232",
-    },
-  ];
+  // Get billing history for this company
+  const billingHistory = billingHistoryData.filter(bill => bill.companyId === Number(id));
 
   const handlePlanChange = () => {
     toast({
