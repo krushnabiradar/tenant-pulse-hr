@@ -18,6 +18,9 @@ import NotFound from "./pages/NotFound";
 import SuperAdmin from "./pages/SuperAdmin";
 import SuperAdminAuditLogs from "./pages/SuperAdminAuditLogs";
 import SuperAdminCompanies from "./pages/SuperAdminCompanies";
+import SuperAdminCompanyDetails from "./pages/SuperAdminCompanyDetails";
+import SuperAdminCompanyEdit from "./pages/SuperAdminCompanyEdit";
+import SuperAdminCompanySubscription from "./pages/SuperAdminCompanySubscription";
 import SuperAdminEmployees from "./pages/SuperAdminEmployees";
 import SuperAdminSubscriptions from "./pages/SuperAdminSubscriptions";
 
@@ -37,6 +40,18 @@ const App = () => (
           <Route
             path="/super-admin/companies"
             element={<SuperAdminCompanies />}
+          />
+          <Route
+            path="/super-admin/companies/:id"
+            element={<SuperAdminCompanyDetails />}
+          />
+          <Route
+            path="/super-admin/companies/:id/edit"
+            element={<SuperAdminCompanyEdit />}
+          />
+          <Route
+            path="/super-admin/companies/:id/subscription"
+            element={<SuperAdminCompanySubscription />}
           />
           <Route
             path="/super-admin/employees"
