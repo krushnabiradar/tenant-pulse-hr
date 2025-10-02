@@ -108,6 +108,14 @@ const SuperAdminCompanyDetails = () => {
                   {new Date(company.joinedDate).toLocaleDateString()}
                 </p>
               </div>
+              <div className="pt-2">
+                <Button
+                  className="w-full"
+                  onClick={() => navigate(`/super-admin/companies/${id}/edit`)}
+                >
+                  Edit Company Details
+                </Button>
+              </div>
             </CardContent>
           </Card>
 
@@ -139,6 +147,15 @@ const SuperAdminCompanyDetails = () => {
                   <Phone className="h-4 w-4 text-muted-foreground" />
                   {company.hrAdmin.phone}
                 </p>
+              </div>
+              <div className="pt-2">
+                <Button
+                  className="w-full"
+                  variant="outline"
+                  onClick={() => navigate(`/super-admin/employees?company=${id}`)}
+                >
+                  View All Employees
+                </Button>
               </div>
             </CardContent>
           </Card>
