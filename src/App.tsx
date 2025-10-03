@@ -14,6 +14,7 @@ import HRAdminAttendance from "./pages/HRAdminAttendance";
 import HRAdminEmployees from "./pages/HRAdminEmployees";
 import HRAdminLeave from "./pages/HRAdminLeave";
 import Index from "./pages/Index";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import SuperAdmin from "./pages/SuperAdmin";
 import SuperAdminAuditLogs from "./pages/SuperAdminAuditLogs";
@@ -34,6 +35,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/auth" element={<Auth />} />
 
           {/* Super Admin Routes */}
           <Route path="/super-admin" element={<SuperAdmin />} />
