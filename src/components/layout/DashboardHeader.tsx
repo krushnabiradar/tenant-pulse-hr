@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface DashboardHeaderProps {
   title: string;
@@ -46,6 +47,7 @@ export default function DashboardHeader({ title, user }: DashboardHeaderProps) {
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
+          <ThemeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button size="icon" variant="ghost" className="relative h-8 w-8 sm:h-9 sm:w-9">
