@@ -303,50 +303,178 @@ const Index = () => {
               <div className="flex flex-wrap gap-8 items-center justify-center">
                 {/* TechCorp Logo */}
                 <div className="h-8 flex items-center">
-                  <svg width="120" height="32" viewBox="0 0 120 32" className="fill-current text-muted-foreground">
-                    <rect x="0" y="8" width="4" height="16" className="fill-primary/60"/>
-                    <rect x="6" y="4" width="4" height="24" className="fill-primary/60"/>
-                    <rect x="12" y="0" width="4" height="32" className="fill-primary/60"/>
-                    <text x="22" y="20" className="text-sm font-semibold" fill="currentColor">TechCorp</text>
+                  <svg
+                    width="120"
+                    height="32"
+                    viewBox="0 0 120 32"
+                    className="fill-current text-muted-foreground"
+                  >
+                    <rect
+                      x="0"
+                      y="8"
+                      width="4"
+                      height="16"
+                      className="fill-primary/60"
+                    />
+                    <rect
+                      x="6"
+                      y="4"
+                      width="4"
+                      height="24"
+                      className="fill-primary/60"
+                    />
+                    <rect
+                      x="12"
+                      y="0"
+                      width="4"
+                      height="32"
+                      className="fill-primary/60"
+                    />
+                    <text
+                      x="22"
+                      y="20"
+                      className="text-sm font-semibold"
+                      fill="currentColor"
+                    >
+                      TechCorp
+                    </text>
                   </svg>
                 </div>
 
                 {/* GlobalDyne Logo */}
                 <div className="h-8 flex items-center">
-                  <svg width="110" height="32" viewBox="0 0 110 32" className="fill-current text-muted-foreground">
-                    <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2" fill="none"/>
-                    <circle cx="16" cy="16" r="6" className="fill-primary/60"/>
-                    <text x="32" y="20" className="text-sm font-semibold" fill="currentColor">GlobalDyne</text>
+                  <svg
+                    width="110"
+                    height="32"
+                    viewBox="0 0 110 32"
+                    className="fill-current text-muted-foreground"
+                  >
+                    <circle
+                      cx="16"
+                      cy="16"
+                      r="12"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                    <circle cx="16" cy="16" r="6" className="fill-primary/60" />
+                    <text
+                      x="32"
+                      y="20"
+                      className="text-sm font-semibold"
+                      fill="currentColor"
+                    >
+                      GlobalDyne
+                    </text>
                   </svg>
                 </div>
 
                 {/* InnovateLabs Logo */}
                 <div className="h-8 flex items-center">
-                  <svg width="120" height="32" viewBox="0 0 120 32" className="fill-current text-muted-foreground">
-                    <polygon points="8,4 16,12 8,20 0,12" className="fill-primary/60"/>
-                    <polygon points="20,8 24,12 20,16 16,12" className="fill-primary/40"/>
-                    <text x="30" y="20" className="text-sm font-semibold" fill="currentColor">InnovateLabs</text>
+                  <svg
+                    width="120"
+                    height="32"
+                    viewBox="0 0 120 32"
+                    className="fill-current text-muted-foreground"
+                  >
+                    <polygon
+                      points="8,4 16,12 8,20 0,12"
+                      className="fill-primary/60"
+                    />
+                    <polygon
+                      points="20,8 24,12 20,16 16,12"
+                      className="fill-primary/40"
+                    />
+                    <text
+                      x="30"
+                      y="20"
+                      className="text-sm font-semibold"
+                      fill="currentColor"
+                    >
+                      InnovateLabs
+                    </text>
                   </svg>
                 </div>
 
                 {/* Nexus Systems Logo */}
                 <div className="h-8 flex items-center">
-                  <svg width="115" height="32" viewBox="0 0 115 32" className="fill-current text-muted-foreground">
-                    <path d="M4 16 L12 8 L20 16 L12 24 Z" className="fill-primary/60"/>
-                    <path d="M8 16 L16 8 L24 16 L16 24 Z" className="fill-primary/40" opacity="0.7"/>
-                    <text x="30" y="20" className="text-sm font-semibold" fill="currentColor">Nexus Systems</text>
+                  <svg
+                    width="115"
+                    height="32"
+                    viewBox="0 0 115 32"
+                    className="fill-current text-muted-foreground"
+                  >
+                    <path
+                      d="M4 16 L12 8 L20 16 L12 24 Z"
+                      className="fill-primary/60"
+                    />
+                    <path
+                      d="M8 16 L16 8 L24 16 L16 24 Z"
+                      className="fill-primary/40"
+                      opacity="0.7"
+                    />
+                    <text
+                      x="30"
+                      y="20"
+                      className="text-sm font-semibold"
+                      fill="currentColor"
+                    >
+                      Nexus Systems
+                    </text>
                   </svg>
                 </div>
 
                 {/* DataFlow Inc Logo */}
                 <div className="h-8 flex items-center">
-                  <svg width="105" height="32" viewBox="0 0 105 32" className="fill-current text-muted-foreground">
-                    <rect x="0" y="12" width="8" height="4" className="fill-primary/60"/>
-                    <rect x="10" y="8" width="8" height="4" className="fill-primary/60"/>
-                    <rect x="20" y="4" width="8" height="4" className="fill-primary/60"/>
-                    <rect x="0" y="20" width="8" height="4" className="fill-primary/40"/>
-                    <rect x="10" y="24" width="8" height="4" className="fill-primary/40"/>
-                    <text x="32" y="20" className="text-sm font-semibold" fill="currentColor">DataFlow</text>
+                  <svg
+                    width="105"
+                    height="32"
+                    viewBox="0 0 105 32"
+                    className="fill-current text-muted-foreground"
+                  >
+                    <rect
+                      x="0"
+                      y="12"
+                      width="8"
+                      height="4"
+                      className="fill-primary/60"
+                    />
+                    <rect
+                      x="10"
+                      y="8"
+                      width="8"
+                      height="4"
+                      className="fill-primary/60"
+                    />
+                    <rect
+                      x="20"
+                      y="4"
+                      width="8"
+                      height="4"
+                      className="fill-primary/60"
+                    />
+                    <rect
+                      x="0"
+                      y="20"
+                      width="8"
+                      height="4"
+                      className="fill-primary/40"
+                    />
+                    <rect
+                      x="10"
+                      y="24"
+                      width="8"
+                      height="4"
+                      className="fill-primary/40"
+                    />
+                    <text
+                      x="32"
+                      y="20"
+                      className="text-sm font-semibold"
+                      fill="currentColor"
+                    >
+                      DataFlow
+                    </text>
                   </svg>
                 </div>
               </div>
