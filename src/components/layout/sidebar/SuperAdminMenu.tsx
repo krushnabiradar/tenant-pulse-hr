@@ -25,8 +25,8 @@ export const getSuperAdminMenuItems = (): SuperAdminMenuItem[] => {
       icon: Building2,
     },
     {
-      title: "Employees",
-      url: "/super-admin/employees",
+      title: "Users",
+      url: "/super-admin/users",
       icon: Users,
     },
     {

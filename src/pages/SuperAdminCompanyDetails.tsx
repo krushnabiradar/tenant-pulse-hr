@@ -154,7 +154,7 @@ const SuperAdminCompanyDetails = () => {
                   variant="outline"
                   onClick={() => navigate(`/super-admin/employees?company=${id}`)}
                 >
-                  View All Employees
+                  View All Users
                 </Button>
               </div>
             </CardContent>
