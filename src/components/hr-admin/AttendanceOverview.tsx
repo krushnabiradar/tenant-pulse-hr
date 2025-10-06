@@ -23,15 +23,15 @@ const AttendanceOverview = () => {
         <CardTitle className="text-xl font-bold">Attendance Overview</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-[240px]">
+        <div className="h-[280px]">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={attendanceData}
-                cx="50%"
+                cx="40%"
                 cy="50%"
-                innerRadius={60}
-                outerRadius={80}
+                innerRadius={50}
+                outerRadius={70}
                 paddingAngle={2}
                 dataKey="value"
               >
