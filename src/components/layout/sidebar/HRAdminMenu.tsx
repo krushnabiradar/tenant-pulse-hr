@@ -1,4 +1,4 @@
-import { BarChart3, CalendarDays, ClipboardList, Users, Briefcase, DollarSign, Shield } from "lucide-react";
+import { BarChart3, CalendarDays, ClipboardList, Users } from "lucide-react";
 
 export type HRAdminMenuItem = {
   title: string;
@@ -27,21 +27,6 @@ export const getHRAdminMenuItems = (): HRAdminMenuItem[] => {
       title: "Leave Management",
       url: "/hr-admin/leave",
       icon: ClipboardList,
-    },
-    {
-      title: "Recruitment",
-      url: "/hr-admin/recruitment",
-      icon: Briefcase,
-    },
-    {
-      title: "Payroll",
-      url: "/hr-admin/payroll",
-      icon: DollarSign,
-    },
-    {
-      title: "Compliance",
-      url: "/hr-admin/compliance",
-      icon: Shield,
     },
   ];
 };
