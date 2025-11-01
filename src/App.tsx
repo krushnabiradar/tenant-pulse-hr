@@ -15,6 +15,9 @@ import HRAdmin from "./pages/HRAdmin";
 import HRAdminAttendance from "./pages/HRAdminAttendance";
 import HRAdminEmployees from "./pages/HRAdminEmployees";
 import HRAdminLeave from "./pages/HRAdminLeave";
+import HRAdminRecruitment from "./pages/HRAdminRecruitment";
+import HRAdminPayroll from "./pages/HRAdminPayroll";
+import HRAdminCompliance from "./pages/HRAdminCompliance";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import SuperAdmin from "./pages/SuperAdmin";
@@ -78,6 +81,9 @@ const App = () => (
               element={<HRAdminAttendance />}
             />
             <Route path="/hr-admin/leave" element={<HRAdminLeave />} />
+            <Route path="/hr-admin/recruitment" element={<HRAdminRecruitment />} />
+            <Route path="/hr-admin/payroll" element={<HRAdminPayroll />} />
+            <Route path="/hr-admin/compliance" element={<HRAdminCompliance />} />
 
             {/* Employee Routes */}
             <Route path="/employee" element={<Employee />} />
