@@ -1,51 +1,64 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DonutChart, Legend } from "@/components/ui/chart";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Legend,
+  Tooltip
+} from "recharts";
 
 const attendanceData = [
-  { label: "Present", value: 84, color: "#22c55e" },
-  { label: "Late", value: 12, color: "#eab308" },
-  { label: "Absent", value: 4, color: "#ef4444" },
-  { label: "On Leave", value: 8, color: "#3b82f6" }
+  { name: "Present", value: 84, color: "#22c55e" },
+  { name: "Late", value: 12, color: "#eab308" },
+  { name: "Absent", value: 4, color: "#ef4444" },
+  { name: "On Leave", value: 8, color: "#3b82f6" }
 ];
 
 const AttendanceOverview = () => {
-  const totalValue = attendanceData.reduce((acc, item) => acc + item.value, 0);
-  const formattedData = attendanceData.map(item => ({
-    ...item,
-    formatted: `${item.value}`
-  }));
-
   return (
     <Card>
       <CardHeader>
         <CardTitle className="text-xl font-bold">Attendance Overview</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="flex items-center justify-center">
-          <div className="h-60 w-60">
-            <DonutChart data={formattedData} />
-          </div>
+        <div className="h-[240px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={attendanceData}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={80}
+                paddingAngle={2}
+                dataKey="value"
+              >
+                {attendanceData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip 
+                formatter={(value) => [`${value} employees`, null]} 
+                contentStyle={{ 
+                  borderRadius: '0.375rem',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+                }}
+              />
+              <Legend 
+                layout="vertical" 
+                verticalAlign="middle" 
+                align="right"
+                formatter={(value, entry, index) => (
+                  <span className="text-sm">{value}</span>
+                )}
+              />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
-        <div className="mt-4">
-          <Legend
-            data={formattedData}
-            className="grid grid-cols-2 gap-4"
-            labels={({ color, label }) => (
-              <div className="flex items-center gap-2">
-                <div
-                  className="h-3 w-3 rounded-full"
-                  style={{ backgroundColor: color }}
-                />
-                <span className="text-sm font-medium">{label}</span>
-              </div>
-            )}
-            values={({ value }) => (
-              <div className="text-sm font-medium">{value}</div>
-            )}
-          />
-        </div>
-        <div className="mt-4 text-xs text-center text-muted-foreground">
+        <div className="mt-2 text-xs text-center text-muted-foreground">
           Today's attendance: 108/124 employees
         </div>
       </CardContent>

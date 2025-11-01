@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { 
   MoreHorizontal, 
   ArrowUpDown, 
@@ -10,7 +9,6 @@ import {
   Users,
   Calendar
 } from "lucide-react";
-import AddCompanyDialog from "./AddCompanyDialog";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -106,7 +104,6 @@ const mockTenants: Tenant[] = [
 
 export default function TenantTable() {
   const [tenants] = useState<Tenant[]>(mockTenants);
-  const navigate = useNavigate();
   
   const getBadgeColor = (status: string) => {
     switch (status) {
@@ -140,7 +137,10 @@ export default function TenantTable() {
               <SelectItem value="pending">Pending</SelectItem>
             </SelectContent>
           </Select>
-          <AddCompanyDialog />
+          <Button size="sm" className="h-8">
+            <Building2 className="mr-2 h-3.5 w-3.5" />
+            Add Company
+          </Button>
         </div>
       </div>
       <Table>
@@ -194,15 +194,9 @@ export default function TenantTable() {
                   <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Actions</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={() => navigate(`/super-admin/companies/${tenant.id}`)}>
-                      View details
-                    </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => navigate(`/super-admin/companies/${tenant.id}/edit`)}>
-                      Edit company
-                    </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => navigate(`/super-admin/companies/${tenant.id}/subscription`)}>
-                      Manage subscription
-                    </DropdownMenuItem>
+                    <DropdownMenuItem>View details</DropdownMenuItem>
+                    <DropdownMenuItem>Edit company</DropdownMenuItem>
+                    <DropdownMenuItem>Manage subscription</DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem className="text-red-600">Suspend account</DropdownMenuItem>
                   </DropdownMenuContent>
