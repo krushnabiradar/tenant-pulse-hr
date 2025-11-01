@@ -1,15 +1,29 @@
+import EmployeeList from "@/components/hr-admin/EmployeeList";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plus, Search, Upload, Download } from "lucide-react";
-import EmployeeList from "@/components/hr-admin/EmployeeList";
-import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Download, Plus, Search, Upload } from "lucide-react";
+import { useState } from "react";
 
 const HRAdminEmployees = () => {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
@@ -48,14 +62,16 @@ const HRAdminEmployees = () => {
                 <DialogHeader>
                   <DialogTitle>Add New Employee</DialogTitle>
                   <DialogDescription>
-                    Enter the details of the new employee to add them to the system.
+                    Enter the details of the new employee to add them to the
+                    system.
                   </DialogDescription>
                 </DialogHeader>
                 <Tabs defaultValue="personal" className="w-full">
-                  <TabsList className="grid w-full grid-cols-3">
+                  <TabsList className="grid w-full grid-cols-4">
                     <TabsTrigger value="personal">Personal</TabsTrigger>
                     <TabsTrigger value="employment">Employment</TabsTrigger>
                     <TabsTrigger value="contact">Contact</TabsTrigger>
+                    <TabsTrigger value="salary">Salary</TabsTrigger>
                   </TabsList>
                   <TabsContent value="personal" className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
@@ -70,7 +86,11 @@ const HRAdminEmployees = () => {
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="john.doe@company.com" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="john.doe@company.com"
+                      />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="grid gap-2">
@@ -105,7 +125,9 @@ const HRAdminEmployees = () => {
                             <SelectValue placeholder="Select department" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="engineering">Engineering</SelectItem>
+                            <SelectItem value="engineering">
+                              Engineering
+                            </SelectItem>
                             <SelectItem value="sales">Sales</SelectItem>
                             <SelectItem value="hr">Human Resources</SelectItem>
                             <SelectItem value="finance">Finance</SelectItem>
@@ -140,7 +162,11 @@ const HRAdminEmployees = () => {
                   <TabsContent value="contact" className="space-y-4">
                     <div className="grid gap-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
+                      <Input
+                        id="phone"
+                        type="tel"
+                        placeholder="+1 (555) 123-4567"
+                      />
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="address">Address</Label>
@@ -167,9 +193,66 @@ const HRAdminEmployees = () => {
                       </div>
                     </div>
                   </TabsContent>
+                  <TabsContent value="salary" className="space-y-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="basicSalary">Basic Salary</Label>
+                      <Input
+                        id="basicSalary"
+                        type="number"
+                        placeholder="10500"
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="grid gap-2">
+                        <Label htmlFor="hra">HRA</Label>
+                        <Input id="hra" type="number" placeholder="4200" />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="cityAllowance">
+                          City Compensatory Allowance
+                        </Label>
+                        <Input
+                          id="cityAllowance"
+                          type="number"
+                          placeholder="2100"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="grid gap-2">
+                        <Label htmlFor="medicalAllowance">
+                          Medical Allowance
+                        </Label>
+                        <Input
+                          id="medicalAllowance"
+                          type="number"
+                          placeholder="1050"
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="foodAllowance">Food Allowance</Label>
+                        <Input
+                          id="foodAllowance"
+                          type="number"
+                          placeholder="1580"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="otherAllowances">Other Allowances</Label>
+                      <Input
+                        id="otherAllowances"
+                        type="number"
+                        placeholder="10570"
+                      />
+                    </div>
+                  </TabsContent>
                 </Tabs>
                 <DialogFooter>
-                  <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>
+                  <Button
+                    variant="outline"
+                    onClick={() => setIsAddDialogOpen(false)}
+                  >
                     Cancel
                   </Button>
                   <Button onClick={handleAddEmployee}>Add Employee</Button>
@@ -184,10 +267,7 @@ const HRAdminEmployees = () => {
             <div className="flex items-center gap-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  placeholder="Search employees..."
-                  className="pl-10"
-                />
+                <Input placeholder="Search employees..." className="pl-10" />
               </div>
               <Select defaultValue="all">
                 <SelectTrigger className="w-[180px]">
