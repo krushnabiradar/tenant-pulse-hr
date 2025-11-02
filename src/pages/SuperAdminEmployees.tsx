@@ -1,35 +1,14 @@
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { useToast } from "@/hooks/use-toast";
-import { Edit, Filter, Plus, Search, Trash2 } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Plus, Search, Filter, Edit, Trash2 } from "lucide-react";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const SuperAdminEmployees = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -45,37 +24,16 @@ const SuperAdminEmployees = () => {
   };
 
   const employees = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@acme.com",
-      company: "Acme Corp",
-      role: "Developer",
-      status: "Active",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@techco.com",
-      company: "Tech Co",
-      role: "Manager",
-      status: "Active",
-    },
-    {
-      id: 3,
-      name: "Bob Johnson",
-      email: "bob@acme.com",
-      company: "Acme Corp",
-      role: "Designer",
-      status: "On Leave",
-    },
+    { id: 1, name: "John Doe", email: "john@acme.com", company: "Acme Corp", role: "Developer", status: "Active" },
+    { id: 2, name: "Jane Smith", email: "jane@techco.com", company: "Tech Co", role: "Manager", status: "Active" },
+    { id: 3, name: "Bob Johnson", email: "bob@acme.com", company: "Acme Corp", role: "Designer", status: "On Leave" },
   ];
 
   return (
     <DashboardLayout variant="super-admin" title="Employee Management">
       <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">All Users</h1>
+          <h1 className="text-2xl font-bold">All Employees</h1>
           <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
             <DialogTrigger asChild>
               <Button>
@@ -97,11 +55,7 @@ const SuperAdminEmployees = () => {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="employee@company.com"
-                  />
+                  <Input id="email" type="email" placeholder="employee@company.com" />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="company">Company</Label>
@@ -136,10 +90,7 @@ const SuperAdminEmployees = () => {
                 </div>
               </div>
               <DialogFooter>
-                <Button
-                  variant="outline"
-                  onClick={() => setIsAddDialogOpen(false)}
-                >
+                <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>
                   Cancel
                 </Button>
                 <Button onClick={handleAddEmployee}>Add Employee</Button>
@@ -190,20 +141,14 @@ const SuperAdminEmployees = () => {
               <TableBody>
                 {employees.map((employee) => (
                   <TableRow key={employee.id}>
-                    <TableCell className="font-medium">
-                      {employee.name}
-                    </TableCell>
+                    <TableCell className="font-medium">{employee.name}</TableCell>
                     <TableCell>{employee.email}</TableCell>
                     <TableCell>{employee.company}</TableCell>
                     <TableCell>{employee.role}</TableCell>
                     <TableCell>
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs ${
-                          employee.status === "Active"
-                            ? "bg-green-100 text-green-800"
-                            : "bg-yellow-100 text-yellow-800"
-                        }`}
-                      >
+                      <span className={`px-2 py-1 rounded-full text-xs ${
+                        employee.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                      }`}>
                         {employee.status}
                       </span>
                     </TableCell>

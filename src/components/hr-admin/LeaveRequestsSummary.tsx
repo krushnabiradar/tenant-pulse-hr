@@ -73,7 +73,7 @@ const LeaveRequestsSummary = () => {
                       Approve
                     </Button>
                     <Button size="sm" variant="outline" className="h-8 border-red-500 text-red-600 hover:text-red-700 hover:bg-red-50">
-                      Reject
+                      Deny
                     </Button>
                   </div>
                 </TableCell>

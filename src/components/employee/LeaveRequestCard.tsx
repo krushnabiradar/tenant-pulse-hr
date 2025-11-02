@@ -1,13 +1,7 @@
+
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { useState } from "react";
-import LeaveRequestDialog from "./LeaveRequestDialog";
+import { Progress } from "@/components/ui/progress";
 
 const leaveBalances = [
   { type: "Annual Leave", used: 5, total: 20, color: "bg-blue-500" },
@@ -16,8 +10,6 @@ const leaveBalances = [
 ];
 
 const LeaveRequestCard = () => {
-  const [isRequestOpen, setIsRequestOpen] = useState(false);
-
   return (
     <Card>
       <CardHeader className="pb-2">
@@ -36,9 +28,9 @@ const LeaveRequestCard = () => {
                 </span>
               </div>
               <div className="h-2 rounded-full bg-muted overflow-hidden">
-                <div
-                  className={`h-full ${leave.color}`}
-                  style={{ width: `${(leave.used / leave.total) * 100}%` }}
+                <div 
+                  className={`h-full ${leave.color}`} 
+                  style={{ width: `${(leave.used / leave.total) * 100}%` }} 
                 />
               </div>
             </div>
@@ -47,14 +39,8 @@ const LeaveRequestCard = () => {
       </CardContent>
       <CardFooter>
         <div className="flex w-full gap-2">
-          <Button className="flex-1" variant="outline">
-            View History
-          </Button>
-          <LeaveRequestDialog
-            open={isRequestOpen}
-            onOpenChange={setIsRequestOpen}
-            trigger={<Button className="flex-1">Request Leave</Button>}
-          />
+          <Button className="flex-1" variant="outline">View History</Button>
+          <Button className="flex-1">Request Leave</Button>
         </div>
       </CardFooter>
     </Card>

@@ -12,8 +12,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 
 interface DashboardHeaderProps {
   title: string;
@@ -30,7 +28,6 @@ export default function DashboardHeader({ title, user }: DashboardHeaderProps) {
   
   return (
     <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center gap-2 sm:gap-4 border-b bg-background px-3 sm:px-4 md:px-6">
-      <SidebarTrigger className="md:hidden" />
       <div className="flex-1 flex items-center justify-between">
         <h1 className="font-semibold text-base sm:text-lg md:text-xl truncate">{title}</h1>
         <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
@@ -49,7 +46,6 @@ export default function DashboardHeader({ title, user }: DashboardHeaderProps) {
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
-          <ThemeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button size="icon" variant="ghost" className="relative h-8 w-8 sm:h-9 sm:w-9">

@@ -1,8 +1,13 @@
-import AttendanceOverview from "@/components/hr-admin/AttendanceOverview";
-import LeaveRequestsSummary from "@/components/hr-admin/LeaveRequestsSummary";
+
+import { CalendarDays, ClipboardList, DollarSign, FileText, Users } from "lucide-react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import StatsCard from "@/components/super-admin/StatsCard";
-import { CalendarDays, ClipboardList, DollarSign, Users } from "lucide-react";
+import EmployeeList from "@/components/hr-admin/EmployeeList";
+import AttendanceOverview from "@/components/hr-admin/AttendanceOverview";
+import LeaveRequestsSummary from "@/components/hr-admin/LeaveRequestsSummary";
+import PayrollStatus from "@/components/hr-admin/PayrollStatus";
+import RecruitmentProgress from "@/components/hr-admin/RecruitmentProgress";
+import ComplianceDocuments from "@/components/hr-admin/ComplianceDocuments";
 
 const HRAdmin = () => {
   return (
@@ -38,10 +43,28 @@ const HRAdmin = () => {
 
         <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-8 overflow-x-auto">
-            <LeaveRequestsSummary />
+            <EmployeeList />
           </div>
           <div className="lg:col-span-4">
             <AttendanceOverview />
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
+          <div className="overflow-x-auto">
+            <LeaveRequestsSummary />
+          </div>
+          <div className="overflow-x-auto">
+            <PayrollStatus />
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
+          <div>
+            <RecruitmentProgress />
+          </div>
+          <div>
+            <ComplianceDocuments />
           </div>
         </div>
       </div>
