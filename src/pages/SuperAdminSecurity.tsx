@@ -1,12 +1,25 @@
 import DashboardLayout from "@/components/layout/DashboardLayout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Shield, Lock, Key, AlertTriangle, CheckCircle, Users, Globe } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
+import {
+  AlertTriangle,
+  CheckCircle,
+  Globe,
+  Key,
+  Lock,
+  Shield,
+} from "lucide-react";
 
 const SuperAdminSecurity = () => {
   const { toast } = useToast();
@@ -22,7 +35,7 @@ const SuperAdminSecurity = () => {
     <DashboardLayout variant="super-admin" title="Security Settings">
       <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Security & Compliance</h1>
+          <h1 className="text-2xl font-bold">Security</h1>
           <Button onClick={handleSaveSettings}>Save Settings</Button>
         </div>
 
@@ -30,7 +43,8 @@ const SuperAdminSecurity = () => {
           <AlertTriangle className="h-4 w-4" />
           <AlertTitle>Security Alert</AlertTitle>
           <AlertDescription>
-            3 potential security issues detected. Review the security recommendations below.
+            3 potential security issues detected. Review the security
+            recommendations below.
           </AlertDescription>
         </Alert>
 
@@ -41,7 +55,9 @@ const SuperAdminSecurity = () => {
                 <Shield className="h-5 w-5" />
                 Authentication Settings
               </CardTitle>
-              <CardDescription>Configure authentication and access control</CardDescription>
+              <CardDescription>
+                Configure authentication and access control
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
@@ -73,7 +89,9 @@ const SuperAdminSecurity = () => {
                 <Lock className="h-5 w-5" />
                 Password Policy
               </CardTitle>
-              <CardDescription>Set password requirements for all users</CardDescription>
+              <CardDescription>
+                Set password requirements for all users
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -105,7 +123,9 @@ const SuperAdminSecurity = () => {
                 <Key className="h-5 w-5" />
                 API Security
               </CardTitle>
-              <CardDescription>Configure API access and rate limiting</CardDescription>
+              <CardDescription>
+                Configure API access and rate limiting
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
@@ -133,7 +153,9 @@ const SuperAdminSecurity = () => {
                 <Globe className="h-5 w-5" />
                 Network Security
               </CardTitle>
-              <CardDescription>Network and infrastructure protection</CardDescription>
+              <CardDescription>
+                Network and infrastructure protection
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
@@ -159,13 +181,17 @@ const SuperAdminSecurity = () => {
         <Card>
           <CardHeader>
             <CardTitle>Security Status</CardTitle>
-            <CardDescription>Current security posture and recommendations</CardDescription>
+            <CardDescription>
+              Current security posture and recommendations
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="text-sm">All system patches are up to date</span>
+                <span className="text-sm">
+                  All system patches are up to date
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500" />
@@ -173,15 +199,21 @@ const SuperAdminSecurity = () => {
               </div>
               <div className="flex items-center gap-3">
                 <AlertTriangle className="h-5 w-5 text-yellow-500" />
-                <span className="text-sm">3 users haven't changed passwords in 90+ days</span>
+                <span className="text-sm">
+                  3 users haven't changed passwords in 90+ days
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <AlertTriangle className="h-5 w-5 text-yellow-500" />
-                <span className="text-sm">5 inactive user accounts detected</span>
+                <span className="text-sm">
+                  5 inactive user accounts detected
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="text-sm">No suspicious login attempts in the last 24 hours</span>
+                <span className="text-sm">
+                  No suspicious login attempts in the last 24 hours
+                </span>
               </div>
             </div>
           </CardContent>

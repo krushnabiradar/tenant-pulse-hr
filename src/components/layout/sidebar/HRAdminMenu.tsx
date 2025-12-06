@@ -35,16 +35,6 @@ export const getHRAdminMenuItems = (): HRAdminMenuItem[] => {
       icon: DollarSign,
     },
     {
-      title: "Recruitment",
-      url: "/hr-admin/recruitment",
-      icon: Briefcase,
-    },
-    {
-      title: "Compliance",
-      url: "/hr-admin/compliance",
-      icon: FileText,
-    },
-    {
       title: "Performance",
       url: "/hr-admin/performance",
       icon: UserCheck,

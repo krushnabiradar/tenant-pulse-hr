@@ -1,6 +1,3 @@
-
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,17 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Building2,
-  Users,
-  UserCircle,
-  ChevronRight,
-  Briefcase,
-} from "lucide-react";
+import { Briefcase, Building2, ChevronRight, UserCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
-  
+
   const handleNavigation = (path: string) => {
     navigate(path);
   };
@@ -53,13 +45,16 @@ const Index = () => {
                   <Building2 className="h-5 w-5 text-primary-700" />
                   Super Admin
                 </CardTitle>
-                <CardDescription>System-wide control & management</CardDescription>
+                <CardDescription>
+                  System-wide control & management
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm mb-4">
-                  Manage tenant companies, monitor system performance, and control subscriptions.
+                  Manage tenant companies, monitor system performance, and
+                  control subscriptions.
                 </p>
-                <Button 
+                <Button
                   variant="default"
                   className="w-full"
                   onClick={() => handleNavigation("/super-admin")}
@@ -79,10 +74,10 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm mb-4">
-                  Manage employees, attendance, payroll, and recruitment for your company.
+                  Manage employees, attendance and payroll for your company.
                 </p>
                 <Button
-                  variant="default" 
+                  variant="default"
                   className="w-full"
                   onClick={() => handleNavigation("/hr-admin")}
                 >
@@ -101,10 +96,11 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-sm mb-4">
-                  Manage your attendance, apply for leave, check payslips, and more.
+                  Manage your attendance, apply for leave, check payslips, and
+                  more.
                 </p>
                 <Button
-                  variant="default" 
+                  variant="default"
                   className="w-full"
                   onClick={() => handleNavigation("/employee")}
                 >

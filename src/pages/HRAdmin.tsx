@@ -1,13 +1,10 @@
-
-import { CalendarDays, ClipboardList, DollarSign, FileText, Users } from "lucide-react";
-import DashboardLayout from "@/components/layout/DashboardLayout";
-import StatsCard from "@/components/super-admin/StatsCard";
-import EmployeeList from "@/components/hr-admin/EmployeeList";
 import AttendanceOverview from "@/components/hr-admin/AttendanceOverview";
+import EmployeeList from "@/components/hr-admin/EmployeeList";
 import LeaveRequestsSummary from "@/components/hr-admin/LeaveRequestsSummary";
 import PayrollStatus from "@/components/hr-admin/PayrollStatus";
-import RecruitmentProgress from "@/components/hr-admin/RecruitmentProgress";
-import ComplianceDocuments from "@/components/hr-admin/ComplianceDocuments";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import StatsCard from "@/components/super-admin/StatsCard";
+import { CalendarDays, ClipboardList, DollarSign, Users } from "lucide-react";
 
 const HRAdmin = () => {
   return (
@@ -56,15 +53,6 @@ const HRAdmin = () => {
           </div>
           <div className="overflow-x-auto">
             <PayrollStatus />
-          </div>
-        </div>
-
-        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
-          <div>
-            <RecruitmentProgress />
-          </div>
-          <div>
-            <ComplianceDocuments />
           </div>
         </div>
       </div>

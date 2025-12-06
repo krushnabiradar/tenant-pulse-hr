@@ -21,7 +21,6 @@ export const AppSidebarContent = ({ menuItems }: SidebarContentProps) => {
   return (
     <SidebarContent>
       <SidebarGroup>
-        <SidebarGroupLabel>Menu</SidebarGroupLabel>
         <SidebarGroupContent>
           <SidebarMenu>
             {menuItems.map((item) => (
