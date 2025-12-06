@@ -1,15 +1,35 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
 import LeaveRequestCard from "@/components/employee/LeaveRequestCard";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Calendar } from "lucide-react";
-import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Plus } from "lucide-react";
+import { useState } from "react";
 
 const EmployeeLeave = () => {
   const [isRequestOpen, setIsRequestOpen] = useState(false);
@@ -26,8 +46,7 @@ const EmployeeLeave = () => {
   return (
     <DashboardLayout variant="employee" title="Leave Management">
       <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Leave Management</h1>
+        <div className="flex justify-end items-center">
           <Dialog open={isRequestOpen} onOpenChange={setIsRequestOpen}>
             <DialogTrigger asChild>
               <Button>
@@ -38,7 +57,9 @@ const EmployeeLeave = () => {
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Request Leave</DialogTitle>
-                <DialogDescription>Submit a new leave request for approval</DialogDescription>
+                <DialogDescription>
+                  Submit a new leave request for approval
+                </DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid gap-2">
@@ -66,11 +87,19 @@ const EmployeeLeave = () => {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="reason">Reason</Label>
-                  <Textarea id="reason" placeholder="Enter reason for leave..." />
+                  <Textarea
+                    id="reason"
+                    placeholder="Enter reason for leave..."
+                  />
                 </div>
               </div>
               <DialogFooter>
-                <Button variant="outline" onClick={() => setIsRequestOpen(false)}>Cancel</Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setIsRequestOpen(false)}
+                >
+                  Cancel
+                </Button>
                 <Button onClick={handleSubmitRequest}>Submit Request</Button>
               </DialogFooter>
             </DialogContent>

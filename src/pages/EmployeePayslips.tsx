@@ -1,21 +1,40 @@
-import DashboardLayout from "@/components/layout/DashboardLayout";
 import PayslipCard from "@/components/employee/PayslipCard";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import DashboardLayout from "@/components/layout/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Download, FileText } from "lucide-react";
 
 const EmployeePayslips = () => {
   const payslips = [
-    { month: "January 2024", date: "2024-01-31", amount: "$5,000", status: "Paid" },
-    { month: "December 2023", date: "2023-12-31", amount: "$5,000", status: "Paid" },
-    { month: "November 2023", date: "2023-11-30", amount: "$5,000", status: "Paid" },
+    {
+      month: "January 2024",
+      date: "2024-01-31",
+      amount: "$5,000",
+      status: "Paid",
+    },
+    {
+      month: "December 2023",
+      date: "2023-12-31",
+      amount: "$5,000",
+      status: "Paid",
+    },
+    {
+      month: "November 2023",
+      date: "2023-11-30",
+      amount: "$5,000",
+      status: "Paid",
+    },
   ];
 
   return (
     <DashboardLayout variant="employee" title="My Payslips">
       <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto">
-        <h1 className="text-2xl font-bold">My Payslips</h1>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <PayslipCard />
@@ -27,12 +46,17 @@ const EmployeePayslips = () => {
               <CardContent>
                 <div className="space-y-3">
                   {payslips.map((payslip, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-4 border rounded-lg"
+                    >
                       <div className="flex items-center gap-3">
                         <FileText className="h-5 w-5 text-muted-foreground" />
                         <div>
                           <p className="font-medium">{payslip.month}</p>
-                          <p className="text-sm text-muted-foreground">{payslip.date}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {payslip.date}
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">

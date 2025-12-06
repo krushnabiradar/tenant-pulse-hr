@@ -37,7 +37,6 @@ const EmployeeAttendance = () => {
   return (
     <DashboardLayout variant="employee" title="My Attendance">
       <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1600px] mx-auto">
-        <h1 className="text-2xl font-bold">My Attendance</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">

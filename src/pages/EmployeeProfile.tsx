@@ -1,13 +1,19 @@
 import DashboardLayout from "@/components/layout/DashboardLayout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { User, Mail, Phone, MapPin, Calendar, Briefcase, Edit } from "lucide-react";
-import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Calendar, Edit, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
 
 const EmployeeProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -24,8 +30,7 @@ const EmployeeProfile = () => {
   return (
     <DashboardLayout variant="employee" title="My Profile">
       <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-w-[1200px] mx-auto">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">My Profile</h1>
+        <div className="flex justify-end items-center">
           {!isEditing ? (
             <Button onClick={() => setIsEditing(true)}>
               <Edit className="h-4 w-4 mr-2" />
@@ -52,7 +57,9 @@ const EmployeeProfile = () => {
                 <div className="text-center">
                   <h2 className="text-xl font-semibold">John Doe</h2>
                   <p className="text-muted-foreground">Software Engineer</p>
-                  <p className="text-sm text-muted-foreground">Engineering Department</p>
+                  <p className="text-sm text-muted-foreground">
+                    Engineering Department
+                  </p>
                 </div>
                 {isEditing && (
                   <Button variant="outline" className="w-full">
@@ -87,7 +94,9 @@ const EmployeeProfile = () => {
             <CardHeader>
               <CardTitle>Profile Information</CardTitle>
               <CardDescription>
-                {isEditing ? "Update your personal information" : "Your personal details and work information"}
+                {isEditing
+                  ? "Update your personal information"
+                  : "Your personal details and work information"}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -97,167 +106,161 @@ const EmployeeProfile = () => {
                   <TabsTrigger value="work">Work</TabsTrigger>
                   <TabsTrigger value="emergency">Emergency</TabsTrigger>
                 </TabsList>
-                
+
                 <TabsContent value="personal" className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
                       <Label htmlFor="firstName">First Name</Label>
-                      <Input 
-                        id="firstName" 
-                        defaultValue="John" 
+                      <Input
+                        id="firstName"
+                        defaultValue="John"
                         disabled={!isEditing}
                       />
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="lastName">Last Name</Label>
-                      <Input 
-                        id="lastName" 
-                        defaultValue="Doe" 
+                      <Input
+                        id="lastName"
+                        defaultValue="Doe"
                         disabled={!isEditing}
                       />
                     </div>
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="email">Email Address</Label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      defaultValue="john.doe@company.com" 
+                    <Input
+                      id="email"
+                      type="email"
+                      defaultValue="john.doe@company.com"
                       disabled={!isEditing}
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input 
-                      id="phone" 
-                      type="tel" 
-                      defaultValue="+1 (555) 123-4567" 
+                    <Input
+                      id="phone"
+                      type="tel"
+                      defaultValue="+1 (555) 123-4567"
                       disabled={!isEditing}
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="address">Address</Label>
-                    <Input 
-                      id="address" 
-                      defaultValue="123 Main St, New York, NY 10001" 
+                    <Input
+                      id="address"
+                      defaultValue="123 Main St, New York, NY 10001"
                       disabled={!isEditing}
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
                       <Label htmlFor="dob">Date of Birth</Label>
-                      <Input 
-                        id="dob" 
-                        type="date" 
-                        defaultValue="1990-01-15" 
+                      <Input
+                        id="dob"
+                        type="date"
+                        defaultValue="1990-01-15"
                         disabled={!isEditing}
                       />
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="gender">Gender</Label>
-                      <Input 
-                        id="gender" 
-                        defaultValue="Male" 
+                      <Input
+                        id="gender"
+                        defaultValue="Male"
                         disabled={!isEditing}
                       />
                     </div>
                   </div>
                 </TabsContent>
-                
+
                 <TabsContent value="work" className="space-y-4">
                   <div className="grid gap-2">
                     <Label htmlFor="employeeId">Employee ID</Label>
-                    <Input 
-                      id="employeeId" 
-                      defaultValue="EMP001234" 
-                      disabled
-                    />
+                    <Input id="employeeId" defaultValue="EMP001234" disabled />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="position">Position</Label>
-                    <Input 
-                      id="position" 
-                      defaultValue="Software Engineer" 
+                    <Input
+                      id="position"
+                      defaultValue="Software Engineer"
                       disabled
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="department">Department</Label>
-                    <Input 
-                      id="department" 
-                      defaultValue="Engineering" 
+                    <Input
+                      id="department"
+                      defaultValue="Engineering"
                       disabled
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="manager">Reporting Manager</Label>
-                    <Input 
-                      id="manager" 
-                      defaultValue="Jane Smith" 
-                      disabled
-                    />
+                    <Input id="manager" defaultValue="Jane Smith" disabled />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
                       <Label htmlFor="joinDate">Join Date</Label>
-                      <Input 
-                        id="joinDate" 
-                        type="date" 
-                        defaultValue="2022-01-15" 
+                      <Input
+                        id="joinDate"
+                        type="date"
+                        defaultValue="2022-01-15"
                         disabled
                       />
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="employmentType">Employment Type</Label>
-                      <Input 
-                        id="employmentType" 
-                        defaultValue="Full Time" 
+                      <Input
+                        id="employmentType"
+                        defaultValue="Full Time"
                         disabled
                       />
                     </div>
                   </div>
                 </TabsContent>
-                
+
                 <TabsContent value="emergency" className="space-y-4">
                   <div className="grid gap-2">
-                    <Label htmlFor="emergencyName">Emergency Contact Name</Label>
-                    <Input 
-                      id="emergencyName" 
-                      defaultValue="Jane Doe" 
+                    <Label htmlFor="emergencyName">
+                      Emergency Contact Name
+                    </Label>
+                    <Input
+                      id="emergencyName"
+                      defaultValue="Jane Doe"
                       disabled={!isEditing}
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="relationship">Relationship</Label>
-                    <Input 
-                      id="relationship" 
-                      defaultValue="Spouse" 
+                    <Input
+                      id="relationship"
+                      defaultValue="Spouse"
                       disabled={!isEditing}
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="emergencyPhone">Contact Number</Label>
-                    <Input 
-                      id="emergencyPhone" 
-                      type="tel" 
-                      defaultValue="+1 (555) 987-6543" 
+                    <Input
+                      id="emergencyPhone"
+                      type="tel"
+                      defaultValue="+1 (555) 987-6543"
                       disabled={!isEditing}
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="emergencyEmail">Email Address</Label>
-                    <Input 
-                      id="emergencyEmail" 
-                      type="email" 
-                      defaultValue="jane.doe@email.com" 
+                    <Input
+                      id="emergencyEmail"
+                      type="email"
+                      defaultValue="jane.doe@email.com"
                       disabled={!isEditing}
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="emergencyAddress">Address</Label>
-                    <Input 
-                      id="emergencyAddress" 
-                      defaultValue="123 Main St, New York, NY 10001" 
+                    <Input
+                      id="emergencyAddress"
+                      defaultValue="123 Main St, New York, NY 10001"
                       disabled={!isEditing}
                     />
                   </div>
